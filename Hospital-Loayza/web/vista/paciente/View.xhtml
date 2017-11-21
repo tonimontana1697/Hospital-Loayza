@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PacienteViewDlg" widgetVar="PacienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="Ver Paciente">
+            <h:form id="PacienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pacienteController.selected != null}">
+                        <h:outputText value="Codigo:"/>
+                        <h:outputText value="#{pacienteController.selected.codpac}" title="#{vista.ViewPacienteTitle_codpac}"/>
+                        <h:outputText value="Nombres:"/>
+                        <h:outputText value="#{pacienteController.selected.nompac}" title="#{vista.ViewPacienteTitle_nompac}"/>
+                        <h:outputText value="Apellidos"/>
+                        <h:outputText value="#{pacienteController.selected.apepac}" title="#{vista.ViewPacienteTitle_apepac}"/>
+                        <h:outputText value="Sexo:"/>
+                        <h:outputText value="#{pacienteController.selected.sexpac}" title="#{vista.ViewPacienteTitle_sexpac}"/>
+                        <h:outputText value="Dni:"/>
+                        <h:outputText value="#{pacienteController.selected.dnipac}" title="#{vista.ViewPacienteTitle_dnipac}"/>
+                        <h:outputText value="Nacimiento:"/>
+                        <h:outputText value="#{pacienteController.selected.fnpac}" title="#{vista.ViewPacienteTitle_fnpac}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="Direccion:"/>
+                        <h:outputText value="#{pacienteController.selected.dirpac}" title="#{vista.ViewPacienteTitle_dirpac}"/>
+                        <h:outputText value="Telefono:"/>
+                        <h:outputText value="#{pacienteController.selected.telfpac}" title="#{vista.ViewPacienteTitle_telfpac}"/>
+                        <h:outputText value="Email:"/>
+                        <h:outputText value="#{pacienteController.selected.emailpac}" title="#{vista.ViewPacienteTitle_emailpac}"/>
+                        <h:outputText value="Historia Clinica:"/>
+                        <h:outputText value="#{pacienteController.selected.hcpac}" title="#{vista.ViewPacienteTitle_hcpac}"/>
+                        <h:outputText value="Estado:"/>
+                        <h:outputText value="#{pacienteController.selected.estpac}" title="#{vista.ViewPacienteTitle_estpac}"/>
+                        <h:outputText value="Ubigeo:"/>
+                        <h:outputText value="#{ubigeoController.ver}" title="#{vista.ViewPacienteTitle_ubigeo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{vista.Close}" onclick="PacienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

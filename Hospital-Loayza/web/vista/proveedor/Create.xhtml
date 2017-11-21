@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveedorCreateDlg" widgetVar="ProveedorCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Ingrese Proveedor">
+            <h:form id="ProveedorCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="6" rendered="#{proveedorController.selected != null}">
+                        <p:outputLabel value="Codigo:" for="codprov" />
+                        <p:inputText id="codprov" value="#{proveedorController.selected.codprov}" title="#{vista.CreateProveedorTitle_codprov}" required="true" requiredMessage="#{vista.CreateProveedorRequiredMessage_codprov}"/>
+                        <p:outputLabel value="Nombre:" for="nomprov" />
+                        <p:inputText id="nomprov" value="#{proveedorController.selected.nomprov}" title="#{vista.CreateProveedorTitle_nomprov}" />
+                        <p:outputLabel value="Ruc:" for="rucprov" />
+                        <p:inputText id="rucprov" value="#{proveedorController.selected.rucprov}" title="#{vista.CreateProveedorTitle_rucprov}" />
+                        <p:outputLabel value="Direccion:" for="dirprov" />
+                        <p:inputText id="dirprov" value="#{proveedorController.selected.dirprov}" title="#{vista.CreateProveedorTitle_dirprov}" />
+                        <p:outputLabel value="Laboratorio - Distribuidor:" for="tipprov" />
+                        <p:inputText id="tipprov" value="#{proveedorController.selected.tipprov}" title="#{vista.CreateProveedorTitle_tipprov}" />
+                        <p:outputLabel value="Telefono" for="telfprov" />
+                        <p:inputText id="telfprov" value="#{proveedorController.selected.telfprov}" title="#{vista.CreateProveedorTitle_telfprov}" />
+                        <p:outputLabel value="Nombre Comercial:" for="comprov" />
+                        <p:inputText id="comprov" value="#{proveedorController.selected.comprov}" title="#{vista.CreateProveedorTitle_comprov}" />
+                        <p:outputLabel value="Abreviatura:" for="abrprov" />
+                        <p:inputText id="abrprov" value="#{proveedorController.selected.abrprov}" title="#{vista.CreateProveedorTitle_abrprov}" />
+                        
+                        
+                        <p:selectOneMenu value="#{ubigeoController.dptSeleccionado}" >
+                            <f:selectItem itemLabel="Seleccione Departamento"
+                                          itemValue=""
+                                          noSelectionOption="true"/>
+                            <f:selectItems value="#{ubigeoController.lstdpt}"
+                                           var="dptos"
+                                           itemLabel="#{dptos.dpto}"
+                                           itemValue="#{dptos}"/>
+                            <p:ajax event="change"
+                                    update="pro"
+                                    listener="#{ubigeoController.cambioProvincia()}"/>
+                        </p:selectOneMenu>
+
+
+                        <p:selectOneMenu id="pro" value="#{ubigeoController.proSeleccionado}">
+                            <f:selectItem itemLabel="Seleccione Provincia"
+                                          itemValue=""
+                                          noSelectionOption="true"/>
+                            <f:selectItems value="#{ubigeoController.lstprov}"
+                                           var="prov"
+                                           itemLabel="#{prov.prov}"
+                                           itemValue="#{prov}"/>
+                            <p:ajax event="change"
+                                    update="dist"
+                                    listener="#{ubigeoController.cambioDistrito()}"/>
+                        </p:selectOneMenu>
+
+
+                        <p:selectOneMenu id="dist" value="#{ubigeoController.ver}">
+                            <f:selectItem itemLabel="Seleccione Distrito"
+                                          itemValue=""
+                                          noSelectionOption="true"/>
+                            <f:selectItems value="#{ubigeoController.lstdist}"
+                                           var="dis"
+                                           itemLabel="#{dis.dist}"
+                                           itemValue="#{dis.ubigeo}"/>
+                            <p:ajax update="s"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="Codigo Ubigeo:"/>
+                        <p:outputLabel id="s" value="#{ubigeoController.ver}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{proveedorController.create}" value="#{vista.Save}" update="display,:ProveedorListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProveedorCreateDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="ProveedorCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
