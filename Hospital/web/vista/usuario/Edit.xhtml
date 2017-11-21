@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuarioEditDlg" widgetVar="UsuarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vista.EditUsuarioTitle}">
+            <h:form id="UsuarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_codusu}" for="codusu" />
+                        <p:inputText id="codusu" value="#{usuarioController.selected.codusu}" title="#{vista.EditUsuarioTitle_codusu}" required="true" requiredMessage="#{vista.EditUsuarioRequiredMessage_codusu}"/>
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_nomusu}" for="nomusu" />
+                        <p:inputText id="nomusu" value="#{usuarioController.selected.nomusu}" title="#{vista.EditUsuarioTitle_nomusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_usuusu}" for="usuusu" />
+                        <p:inputText id="usuusu" value="#{usuarioController.selected.usuusu}" title="#{vista.EditUsuarioTitle_usuusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_pwdusu}" for="pwdusu" />
+                        <p:inputText id="pwdusu" value="#{usuarioController.selected.pwdusu}" title="#{vista.EditUsuarioTitle_pwdusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_dniusu}" for="dniusu" />
+                        <p:inputText id="dniusu" value="#{usuarioController.selected.dniusu}" title="#{vista.EditUsuarioTitle_dniusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_ingusu}" for="ingusu" />
+                        <p:calendar id="ingusu" pattern="MM/dd/yyyy" value="#{usuarioController.selected.ingusu}" title="#{vista.EditUsuarioTitle_ingusu}"  showOn="button"/>
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_telfusu}" for="telfusu" />
+                        <p:inputText id="telfusu" value="#{usuarioController.selected.telfusu}" title="#{vista.EditUsuarioTitle_telfusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_fnacusu}" for="fnacusu" />
+                        <p:calendar id="fnacusu" pattern="MM/dd/yyyy" value="#{usuarioController.selected.fnacusu}" title="#{vista.EditUsuarioTitle_fnacusu}"  showOn="button"/>
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_cargusu}" for="cargusu" />
+                        <p:inputText id="cargusu" value="#{usuarioController.selected.cargusu}" title="#{vista.EditUsuarioTitle_cargusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_dirusu}" for="dirusu" />
+                        <p:inputText id="dirusu" value="#{usuarioController.selected.dirusu}" title="#{vista.EditUsuarioTitle_dirusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_levusu}" for="levusu" />
+                        <p:inputText id="levusu" value="#{usuarioController.selected.levusu}" title="#{vista.EditUsuarioTitle_levusu}" />
+                        <p:outputLabel value="#{vista.EditUsuarioLabel_ubigeo}" for="ubigeo" />
+                        <p:selectOneMenu id="ubigeo" value="#{usuarioController.selected.ubigeo}" >
+                            <f:selectItem itemLabel="#{vista.SelectOneMessage}"/>
+                            <f:selectItems value="#{ubigeoController.itemsAvailableSelectOne}"
+                                           var="ubigeoItem"
+                                           itemValue="#{ubigeoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{usuarioController.update}" value="#{vista.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
+                    <p:commandButton value="#{vista.Cancel}" onclick="UsuarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
