@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="65" header="#{vista.AppName}">
+                <h:form>
+                    <div id="top" class="top">
+                        <ui:insert name="top">
+                            <p:menubar>
+                                <p:menuitem value="Inicio" url="/faces/Inicio.xhtml"/>
+                                <p:menuitem value="Detalle de Venta" url="/faces/vista/detventa/List.xhtml"/>
+                                <p:menuitem value="Documento de Venta" url="/faces/vista/docVenta/List.xhtml"/>
+                                <p:menuitem value="Medicina" url="/faces/vista/medicina/List.xhtml"/>
+                                <p:menuitem value="Pacientes" url="/faces/vista/paciente/List.xhtml"/>
+                                <p:menuitem value="Proveedor" url="/faces/vista/proveedor/List.xhtml"/>
+                                <p:menuitem value="Ubigeo" url="/faces/vista/ubigeo/List.xhtml"/>
+                                <p:menuitem value="Usuarios" url="/faces/vista/usuario/List.xhtml"/>
+                                <p:menuitem value="Temas" url="/faces/vista/Temas/TemasClases.xhtml"/>
+                                <p:menuitem value="Cerrar Sesión" url="/faces/login.xhtml"/>
+                            </p:menubar>
+                        </ui:insert>
+                    </div>
+
+                    <div id="content" class="center_content">
+                        <ui:insert name="content">
+                        </ui:insert>
+                    </div>
+                </h:form>
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</html>
