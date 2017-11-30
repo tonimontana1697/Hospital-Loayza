@@ -83,8 +83,11 @@
                         <p:outputLabel value="Codigo Ubigeo:"/>
                         <p:outputLabel id="s" value="#{ubigeoController.ver}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{usuarioController.create}" value="#{vista.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
-                    <p:commandButton value="#{vista.Cancel}" onclick="UsuarioCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{usuarioController.encriptarCrear()}" 
+                                     value="Guargar" update="display,:UsuarioListForm:datalist,:growl" 
+                                     oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
+                    <p:commandButton value="Cancelar" onclick="UsuarioCreateDialog.hide()" 
+                                     actionListener="#{usuarioController.prepareCreate()}"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

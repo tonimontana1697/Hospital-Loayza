@@ -21,13 +21,13 @@
                         <p:outputLabel value="Sexo:" for="sexpac" />
                         <p:inputText id="sexpac" value="#{pacienteController.selected.sexpac}" title="#{vista.EditPacienteTitle_sexpac}" required="true" requiredMessage="#{vista.EditPacienteRequiredMessage_sexpac}"/>
                         <p:outputLabel value="Dni:" for="dnipac" />
-                        <p:inputText id="dnipac" value="#{pacienteController.selected.dnipac}" title="#{vista.EditPacienteTitle_dnipac}" required="true" requiredMessage="#{vista.EditPacienteRequiredMessage_dnipac}"/>
+                        <p:inputMask mask="99999999" id="dnipac" value="#{pacienteController.selected.dnipac}" title="#{vista.EditPacienteTitle_dnipac}" required="true" requiredMessage="#{vista.EditPacienteRequiredMessage_dnipac}"/>
                         <p:outputLabel value="Nacimiento:" for="fnpac" />
                         <p:calendar id="fnpac" pattern="MM/dd/yyyy" value="#{pacienteController.selected.fnpac}" title="#{vista.EditPacienteTitle_fnpac}"  showOn="button"/>
                         <p:outputLabel value="Direccion:" for="dirpac" />
                         <p:inputText id="dirpac" value="#{pacienteController.selected.dirpac}" title="#{vista.EditPacienteTitle_dirpac}" />
                         <p:outputLabel value="Telefono:" for="telfpac" />
-                        <p:inputText id="telfpac" value="#{pacienteController.selected.telfpac}" title="#{vista.EditPacienteTitle_telfpac}" />
+                        <p:inputMask mask="999999999" id="telfpac" value="#{pacienteController.selected.telfpac}" title="#{vista.EditPacienteTitle_telfpac}" />
                         <p:outputLabel value="Email:" for="emailpac" />
                         <p:inputText id="emailpac" value="#{pacienteController.selected.emailpac}" title="#{vista.EditPacienteTitle_emailpac}" />
                         <p:outputLabel value="Historia Clinica:" for="hcpac" />

@@ -12,24 +12,28 @@
             <h:form id="UsuarioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="6" rendered="#{usuarioController.selected != null}">
-                        <p:outputLabel value="Codigo:" for="codusu"/>
-                        <p:inputText id="codusu" readonly="true" value="#{usuarioController.selected.codusu}" title="#{vistas.EditUsuarioTitle_codusu}" required="true" requiredMessage="#{vistas.EditUsuarioRequiredMessage_codusu}"/>
+                        <p:outputLabel value="Código:" for="codusu" />
+                        <p:inputText id="codusu" value="#{usuarioController.selected.codusu}" title="#{vistas.CreateUsuarioTitle_codusu}" required="true" requiredMessage="#{vistas.CreateUsuarioRequiredMessage_codusu}"/>
                         <p:outputLabel value="Nombres:" for="nomusu" />
-                        <p:inputText id="nomusu" value="#{usuarioController.selected.nomusu}" title="#{vistas.EditUsuarioTitle_nomusu}" />
+                        <p:inputText id="nomusu" value="#{usuarioController.selected.nomusu}" title="#{vistas.CreateUsuarioTitle_nomusu}" />
                         <p:outputLabel value="Usuario:" for="usuusu" />
-                        <p:inputText id="usuusu" value="#{usuarioController.selected.usuusu}" title="#{vistas.EditUsuarioTitle_usuusu}" />
+                        <p:inputText maxlength="5" id="usuusu" value="#{usuarioController.selected.usuusu}" title="#{vistas.CreateUsuarioTitle_usuusu}" />
+                        <p:outputLabel value="Password:" for="pwdusu"/>
+                        <p:password id="pwdusu" match="pwdusu2" value="#{usuarioController.selected.pwdusu}" title="#{vistas.CreateUsuarioTitle_pwdusu}" feedback="true"/>
+                        <p:outputLabel value="Repetir Password:" for="pwdusu2"/>
+                        <p:password id="pwdusu2" value="#{usuarioController.selected.pwdusu}" title="#{vistas.CreateUsuarioTitle_pwdusu}" feedback="true"/>
                         <p:outputLabel value="DNI:" for="dniusu" />
-                        <p:inputText id="dniusu" value="#{usuarioController.selected.dniusu}" title="#{vistas.EditUsuarioTitle_dniusu}" />
+                        <p:inputMask mask="99999999" id="dniusu" value="#{usuarioController.selected.dniusu}" title="#{vistas.CreateUsuarioTitle_dniusu}" />
                         <p:outputLabel value="Fecha Ingreso:" for="ingusu" />
                         <p:calendar id="ingusu" pattern="MM/dd/yyyy" value="#{usuarioController.selected.ingusu}" title="#{vistas.EditUsuarioTitle_ingusu}"  showOn="button"/>
                         <p:outputLabel value="Teléfono:" for="telfusu" />
-                        <p:inputText id="telfusu" value="#{usuarioController.selected.telfusu}" title="#{vistas.EditUsuarioTitle_telfusu}" />
+                        <p:inputMask mask="999999999" id="telfusu" value="#{usuarioController.selected.telfusu}" title="#{vistas.CreateUsuarioTitle_telfusu}" />
                         <p:outputLabel value="Nacimiento:" for="fnacusu" />
                         <p:calendar id="fnacusu" pattern="MM/dd/yyyy" value="#{usuarioController.selected.fnacusu}" title="#{vistas.EditUsuarioTitle_fnacusu}"  showOn="button"/>
                         <p:outputLabel value="Cargo:" for="cargusu" />
-                        <p:inputText id="cargusu" value="#{usuarioController.selected.cargusu}" title="#{vistas.EditUsuarioTitle_cargusu}" />
+                        <p:inputText id="cargusu" value="#{usuarioController.selected.cargusu}" title="#{vistas.CreateUsuarioTitle_cargusu}" />
                         <p:outputLabel value="Dirección:" for="dirusu" />
-                        <p:inputText id="dirusu" value="#{usuarioController.selected.dirusu}" title="#{vistas.EditUsuarioTitle_dirusu}" />
+                        <p:inputText id="dirusu" value="#{usuarioController.selected.dirusu}" title="#{vistas.CreateUsuarioTitle_dirusu}" />
                         <p:outputLabel value="Nivel:" for="levusu" />
                         <p:selectOneMenu value="#{usuarioController.selected.levusu}" id="levusu" 
                                          required="true" requiredMessage="Seleccione Nivel">
@@ -37,8 +41,7 @@
                             <f:selectItem itemLabel="Administrador" itemValue="1"/>
                             <f:selectItem itemLabel="Operativo" itemValue="2"/>
                         </p:selectOneMenu>
-                        
-                        
+
                         <p:selectOneMenu value="#{ubigeoController.dptSeleccionado}" >
                             <f:selectItem itemLabel="Seleccione Departamento"
                                           itemValue=""

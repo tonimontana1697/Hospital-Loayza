@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo.dao;
 
 import Services.Funciones;
@@ -13,10 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import modelo.entidad.Usuario;
 
-/**
- *
- * @author Perez
- */
 @Stateless
 public class UsuarioFacade extends AbstractFacade<Usuario> {
 

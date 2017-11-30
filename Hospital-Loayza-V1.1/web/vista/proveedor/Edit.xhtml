@@ -23,7 +23,7 @@
                         <p:outputLabel value="Laboratorio - Distribuidor:" for="tipprov" />
                         <p:inputText id="tipprov" value="#{proveedorController.selected.tipprov}" title="#{vista.EditProveedorTitle_tipprov}" />
                         <p:outputLabel value="Telefono:" for="telfprov" />
-                        <p:inputText id="telfprov" value="#{proveedorController.selected.telfprov}" title="#{vista.EditProveedorTitle_telfprov}" />
+                        <p:inputMask mask="999999999" id="telfprov" value="#{proveedorController.selected.telfprov}" title="#{vista.EditProveedorTitle_telfprov}" />
                         <p:outputLabel value="Nombre Comercial:" for="comprov" />
                         <p:inputText id="comprov" value="#{proveedorController.selected.comprov}" title="#{vista.EditProveedorTitle_comprov}" />
                         <p:outputLabel value="Abreviatura:" for="abrprov" />
