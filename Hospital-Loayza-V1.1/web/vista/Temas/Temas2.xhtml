@@ -74,6 +74,11 @@
                             <p:media value="https://youtu.be/njONr7cJbyE" width="1000" height="600" player="flash" />
                         </f:facet>
                     </p:lightBox>
+
+                    <h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
+                        <p:chart type="line" model="#{chart.animatedModel1}" style="width:400px;" />
+                        <p:chart type="bar" model="#{chart.animatedModel2}" style="width:400px;" />
+                    </h:panelGrid>
                 </h:form>
 
             </ui:define>
