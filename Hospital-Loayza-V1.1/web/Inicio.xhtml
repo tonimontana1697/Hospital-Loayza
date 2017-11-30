@@ -13,7 +13,7 @@
                 <h:form>
                     <div class="row">
                         <div class="col-md-4">
-                            <p:accordionPanel style="width: 450px;" multiple="true" >
+                            <p:accordionPanel style="width: 450px;" multiple="true" activeIndex="true">
                                 <p:tab title="Vision">
                                     <h:panelGrid cellpadding="10">
                                         <p style="text-align: justify; font-size: initial">
@@ -25,7 +25,7 @@
                             </p:accordionPanel>
                         </div>
                         <div class="col-md-4">
-                            <p:accordionPanel style="width: 450px; " multiple="true" >
+                            <p:accordionPanel style="width: 450px; " multiple="true" activeIndex="true">
                                 <p:tab title="Mision">
                                     <h:panelGrid cellpadding="10">
                                         <p style="text-align: left; font-size: initial">
@@ -46,7 +46,7 @@
                             </p:accordionPanel>
                         </div>
                         <div class="col-md-4">
-                            <p:accordionPanel style="width: 420px; " multiple="true" >
+                            <p:accordionPanel style="width: 420px; " multiple="true" activeIndex="true">
                                 <p:tab title="Valores">
                                     <h:panelGrid cellpadding="10">  
                                         <p style="text-align: left; font-size: initial">
@@ -56,20 +56,20 @@
                                             <ul><li><h5>El hombre</h5></li>
 
 
-                                            <h5>El reconocimiento a la dignidad del Ser Humano y la clara conciencia de los derechos y deberes de los clientes/usuarios, constituyen, junto con la valoración del talento de las personas que prestan sus servicios a la institución, nuestra gran fortaleza.
-                                                <br>Por eso, valores tales como la integridad personal, la calidad humana, el compromiso, la lealtad, la honestidad, la veracidad, el trabajo en equipo y el espíritu alegre, son los que nos hacen diferentes y nos permiten hacer realidad, día a día, nuestra Misión.</br></h5></ul>
+                                                <h5>El reconocimiento a la dignidad del Ser Humano y la clara conciencia de los derechos y deberes de los clientes/usuarios, constituyen, junto con la valoración del talento de las personas que prestan sus servicios a la institución, nuestra gran fortaleza.
+                                                    <br>Por eso, valores tales como la integridad personal, la calidad humana, el compromiso, la lealtad, la honestidad, la veracidad, el trabajo en equipo y el espíritu alegre, son los que nos hacen diferentes y nos permiten hacer realidad, día a día, nuestra Misión.</br></h5></ul>
 
 
                                             <ul><li><h5>La familia</h5></li>
 
 
-                                            <h5>La familia, como componente inherente a nuestros clientes/usuarios, se convierte también en foco atención de nuestros servicios mediante el apoyo psicológico, la educación sanitaria y la orientación social en caso necesario.</h5></ul>
+                                                <h5>La familia, como componente inherente a nuestros clientes/usuarios, se convierte también en foco atención de nuestros servicios mediante el apoyo psicológico, la educación sanitaria y la orientación social en caso necesario.</h5></ul>
 
 
                                             <ul><li><h5>El conocimiento</h5></li>
 
 
-                                            <h5>La formación, la actualización de los conocimientos y la comunicación formarán parte de los valores de Gestión del Hospital.</h5></ul>
+                                                <h5>La formación, la actualización de los conocimientos y la comunicación formarán parte de los valores de Gestión del Hospital.</h5></ul>
                                         </p>
                                     </h:panelGrid>
                                 </p:tab>
@@ -77,6 +77,11 @@
                         </div>
 
                     </div>
+
+                    <p:contentFlow value="#{contentFlow.images}" var="image">
+                        <p:graphicImage url="resources/imagenes/Hospital/#{image}" styleClass="content" />
+                        <div class="caption">#{image}</div>
+                    </p:contentFlow>
 
                 </h:form>
             </ui:define>
